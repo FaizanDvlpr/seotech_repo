@@ -1,0 +1,36 @@
+{% extends "main_frontend/base.html" %}
+{% load static %}
+{% block body_content %}
+							
+	<!-- START SECTION TOP -->
+	<section class="section-top">
+		<div class="container">
+			<div class="col-lg-10 offset-lg-1 text-center">
+				<div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
+					<h1>Login Page</h1>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li> / Login Page</li>
+					</ul>
+				</div><!-- //.HERO-TEXT -->
+			</div><!--- END COL -->
+		</div><!--- END CONTAINER -->
+	</section>	
+	<!-- END SECTION TOP -->
+
+	<!-- START LOGIN -->
+	<div class="shadow-wrap">
+		<div class="form-wrap">
+			<h3>Login </h3>
+			<form method="POST">
+				{% csrf_token %}
+				{{form}}
+			<button type="submit">Submit</button>
+			</form>
+			<a class="signup-link" href="{% url "login_auth:authView" %}">Signup</a>
+		</div>
+	</div>
+	<!-- END LOGIN -->
+			
+
+{% endblock body_content %}
