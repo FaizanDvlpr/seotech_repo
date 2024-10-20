@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<meta name="description" content="SEO Tech - Auditing tool + Index Checker">
+
+		<title>SEO Tech - Auditing tool + Index Checker</title>			
+		
+		{% load static %}
+		<link rel="stylesheet" href="{% static "bootstrap/css/bootstrap.min.css" %}">		
+		
+		<link href="{% static "css2f8c9.css?family=Mulish:wght@300;400;500;600;700;800&amp;display=swap" %}" rel="stylesheet">
+		
+		<!-- Font Awesome CSS -->
+		<link rel="stylesheet" href="{% static "fonts/font-awesome.min.css" %}">
+		<link rel="stylesheet" href="{% static "fonts/themify-icons.css" %}">
+		<!--- owl carousel Css-->
+		<link rel="stylesheet" href="{% static "owlcarousel/css/owl.carousel.css" %}">
+		<link rel="stylesheet" href="{% static "owlcarousel/css/owl.theme.css" %}">	
+		<!--- animate text Css-->
+		<link rel="stylesheet" href="{% static "css/animated-headline.css" %}">
+		<!--slicknav Css-->
+        <link rel="stylesheet" href="{% static "css/slicknav.css" %}">		
+		<!-- MAGNIFIC CSS -->
+		<link href="{% static "css/magnific-popup.css" %}" rel="stylesheet">	
+		<!-- animate CSS -->
+		<link rel="stylesheet" href="{% static "css/animate.css" %}">			
+		<!-- Style CSS -->					
+		<link rel="stylesheet" href="{% static "css/style.css" %}" />				
+
+</head>
+<body>
+	
+	<!-- START PRELOADER -->
+	<div class="preloader">
+		<div class="status">
+			<div class="status-mes"></div>
+		</div>
+	</div>
+	<!-- END PRELOADER -->
+	
+	<!-- START NAVBAR -->  
+	<div id="navigation" class="fixed-top navbar-light bg-faded site-navigation">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-2 col-md-3 col-sm-4">
+					<div class="site-logo">
+						<a href="{% url "home" %}"><img src="{% static "img/logo.png" %}" alt=""></a>          			        				
+					</div>
+				</div>
+				
+				<div class="col-lg-7 col-md-9 col-sm-8 ">
+					<div class="header_right ">
+						<nav id="main-menu" class="ms-auto">
+							<ul>
+							   <li><a class="nav-link" href="{% url "home" %}">Home</a></li>
+							    <li><a class="nav-link" href="#">Pages <span class="ti-angle-down"></span></a>
+									<ul>
+										<li><a class="nav-link" href="{% url "about" %}">About Us</a></li>
+										<li><a class="nav-link" href="{% url "team" %}">Our team</a></li>
+									</ul>
+								</li>
+								<li><a class="nav-link" href="#">Blog <span class="ti-angle-down"></span></a>
+									<ul>
+										<li><a class="nav-link" href="{% url "blog" %}">Blog List</a></li>
+										<li><a class="nav-link" href="{% url "single_blog" %}">Single Blog</a></li>
+									</ul>
+								</li>
+							    <li><a class="nav-link" href="{% url "contact" %}">Contact</a></li>
+							</ul>
+						</nav>
+						<div id="mobile_menu"></div>
+					</div>
+				</div><!--- END Col -->
+				<div class="col-lg-3 col-md-3 col-sm-8">
+					<div class="call_to_action">
+						<a href="{% url "login" %}">Login</a>
+					</div><!--- END SOCIAL PROFILE -->					
+				</div><!--- END Col -->
+			</div><!--- END ROW -->
+		</div><!--- END CONTAINER -->
+	</div> 	  
+	<!-- END NAVBAR -->
+
+    {% block body_content %}{% endblock body_content %}
+
+
+    <!-- START FOOTER -->
+	<div class="footer section-padding">
+		<div class="container">				
+			<div class="row">						
+				<div class="col-lg-3 col-sm-6 col-xs-12">
+					<div class="single_footer">
+						<a href="{% url "home" %}"><img src="{% static "img/logo.png" %}" alt=""></a>         
+						<p>Your AI-powered solution for smarter SEO. Optimize your website's performance with site audits, index checks, and content analysis, all in one platform.</p>
+					</div>						
+				</div><!--- END COL -->						
+				<div class="col-lg-3 col-sm-6 col-xs-12">
+					<div class="single_footer">
+						<h4>Usecases</h4>
+						<ul>
+							<li><a href="#">Creative Writing</a></li>
+							<li><a href="#">Social Media Ads</a></li>
+							<li><a href="#">For Emails</a></li>
+							<li><a href="#">Text Editing</a></li>
+							<li><a href="#">Blog Writing</a></li>
+						</ul>
+					</div>
+				</div><!--- END COL -->	
+				<div class="col-lg-3 col-sm-6 col-xs-1">
+					<div class="single_footer">
+						<h4>Company</h4>
+						<ul>
+							<li><a href="#">About us</a></li>
+							<li><a href="#">Knowledge Base</a></li>
+							<li><a href="#">Affiliate Program</a></li>
+							<li><a href="#">Community</a></li>
+							<li><a href="#">Market API</a></li>						
+						</ul>
+					</div>
+				</div><!--- END COL -->	
+				<div class="col-lg-3 col-sm-6 col-xs-1">
+					<div class="single_footer">
+						<h4>Connect With Us</h4>
+						<ul>
+							<li><a href="#"><u>Chat Now</u></a></li>
+							<li><a href="#">LinkedIn</a></li>
+							<li><a href="#">Facebook</a></li>
+							<li><a href="#">Twitter</a></li>						
+							<li><a href="#">Instagram</a></li>						
+						</ul>
+					</div>
+				</div><!--- END COL -->	
+			</div><!--- END ROW -->		
+			<div class="row fc">
+				<div class="col-lg-6 col-sm-6 col-xs-12">
+					<div class="footer_copyright">
+						<p>&copy; 2024. All Rights Reserved.</p>
+					</div>
+				</div>
+				<div class="col-lg-6 col-sm-6 col-xs-12">
+					<div class="footer_menu">
+						<ul>
+							<li><a href="#">Terms of use</a></li>
+							<li><a href="#">Privacy Policy</a></li>
+							<li><a href="#">Cookie Policy</a></li>
+						</ul>
+					</div>
+				</div><!-- END COL -->
+			</div>				
+		</div><!--- END CONTAINER -->
+	</div>
+	<!-- END FOOTER -->			
+		
+	<!-- Latest jQuery -->
+		<script src="{% static "js/jquery-1.12.4.min.js" %}"></script>
+	<!-- Latest compiled and minified Bootstrap -->
+		<script src="{% static "bootstrap/js/bootstrap.min.js" %}"></script>			
+	<!-- owl-carousel min js  -->
+		<script src="{% static "owlcarousel/js/owl.carousel.min.js" %}"></script>	
+	<!-- jquery.slicknav -->
+		<script src="{% static "js/jquery.slicknav.js" %}"></script>			
+	<!-- magnific-popup js -->               
+		<script src="{% static "js/jquery.magnific-popup.min.js" %}"></script>	
+    <!-- Animated Headline js-->
+		<script src="{% static "js/animated-headline.js" %}"></script>		
+	<!-- scrolltopcontrol js -->
+		<script src="{% static "js/scrolltopcontrol.js" %}"></script>		
+	<!-- WOW - Reveal Animations When You Scroll -->
+		<script src="{% static "js/wow.min.js" %}"></script>				
+	<!-- scripts js -->	
+		<script src="{% static "js/scripts.js" %}"></script>			
+</body>
+
+</html>
