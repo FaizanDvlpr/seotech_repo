@@ -2,22 +2,6 @@
 {% load static %}
 {% block body_content %}
 
-	<!-- START SECTION TOP -->
-	<section class="section-top">
-		<div class="container">
-			<div class="col-lg-10 offset-lg-1 text-center">
-				<div class="section-top-title wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.3s" data-wow-offset="0">
-					<h1>Register Page</h1>
-					<ul>
-						<li><a href="index.html">Home</a></li>
-						<li> / Register</li>
-					</ul>
-				</div><!-- //.HERO-TEXT -->
-			</div><!--- END COL -->
-		</div><!--- END CONTAINER -->
-	</section>	
-	<!-- END SECTION TOP -->
-
 
 
 	<div class="shadow-wrap">
@@ -28,7 +12,7 @@
 			{{form}}
 			<button type="submit">Submit</button>
 		</form>
-		<a class="signup-link" href="{% url "base:authView" %}">Signup</a>
+		<a class="signup-link" href="{% url "login_auth:authView" %}">Signup</a>
 	   </div>
 	</div>
 		

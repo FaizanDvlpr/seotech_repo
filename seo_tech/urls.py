@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("frontend.urls")),
     path('', include("login_auth.urls")),
+    path('', include("index_checker.urls"), name='url_inspector'),
+    path('accounts/', include('allauth.urls')),  
 ]

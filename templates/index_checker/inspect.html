@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="canonical" href="https://valentin.app/inspect.html"/>
+
+    <title>Google Bulk Inspect URLs</title>
+    <meta name="description" content="Inspect multiple URLs at once and export the result to Excel and/or a CSV file.">
+
+    <meta property="og:url" content="https://valentin.app/inspect.html"/>
+    <meta name="google" value="notranslate"/>
+    <link rel="shortcut icon" pan-favicon href="https://valentin.app/images/icons/icon-96x96.png"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="https://valentin.app/images/inspect.png"/>
+    <meta property="og:image" content="https://valentin.app/images/inspect.png"/>
+    <meta name="referrer" content="no-referrer"/>
+    <meta name="twitter:title" property="og:title" content="Google Bulk Inspect URLs"/>
+    <meta name="twitter:description" property="og:description" content="Inspect multiple URLs at once and export the result to Excel and/or a CSV file."/>
+    <meta name="twitter:site" content="@vorticoncmdr"/>
+    <meta name="twitter:creator" content="@vorticoncmdr"/>
+
+    <link rel="stylesheet" href="https://valentin.app/css/bootstrap.min.v3.3.7.css"/>
+    <link rel="stylesheet" href="https://valentin.app/css/bootstrap-table.min.css"/>
+
+    <script id="siteOptionTemplate" type="text/x-handlebars-template">
+      {% comment %} {{#each siteEntry}} {% endcomment %}
+      <option value="{{siteUrl}}">{{siteUrl}}</option>
+      {% comment %} {{/each}} {% endcomment %}
+    </script>
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="row text-center">
+        <h1>Google Bulk Inspect URLs</h1>
+        <p class="lead">Inspect multiple URLs at once and export the result to Excel and/or a CSV file.</p>
+      </div>
+      <div class="row">
+        <p>The data will be processed in your browser and not uploaded to a server or shared with anyone. You can save your data as csv or excel file for further investigation. Most of this code is directly from the Google example.</p>
+      </div>
+      <div class="row">
+        <div id="errorAlert" class="alert alert-danger alert-dismissible hidden" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <span id="errorAlertMsg">Error signing in<span>
+        </div>
+      </div>
+      <div class="row">
+        <div id="progress" class="progress hidden">
+          <div id="progressBar" class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+            <span class="sr-only">in progress</span>
+          </div>
+        </div>
+      </div>
+      <div class="row" id="input-row">
+        <div class="form-group">
+          <div class="input-group">
+            <div class="input-group-addon">2. select property</div>
+            <select id="properties" class="form-control"></select>
+          </div>
+        </div>
+        <textarea id="urlsInput" class="form-control" rows="10" placeholder="3. enter one url per line and at least one url to check"></textarea>
+        <button id="authBtn" type="button" class="btn btn-primary btn-lg btn-block">1. authorize</button>
+        <button id="urlsBtn" type="button" class="btn btn-primary btn-lg btn-block" disabled="disabled">4. inspect URLs</button>
+      </div>
+
+      <div id="dataTable" class="row">
+        <div id="toolbar">
+        </div>
+        <table id="table"
+              data-export-data-type="all"
+               data-show-export="true"
+               data-sort-name="total"
+	             data-sort-order="desc"
+               data-search="true"
+               data-show-columns="true">
+          <thead>
+            <tr>
+              <th data-field="inspectedUrl" data-formatter="linkUrl" data-sortable="true">inspectedUrl</th>
+              <th data-field="googleCanonical" data-sortable="true">googleCanonical</th>
+              <th data-field="userCanonical" data-sortable="true">userCanonical</th>
+              <th data-field="pageFetchState" data-sortable="true">pageFetchState</th>
+              <th data-field="lastCrawlTime" data-sortable="true">lastCrawlTime</th>
+              <th data-field="indexingState" data-sortable="true">indexingState</th>
+              <th data-field="robotsTxtState" data-sortable="true">robotsTxtState</th>
+              <th data-field="coverageState" data-sortable="true">coverageState</th>
+              <th data-field="verdict" data-sortable="true">verdict</th>
+              <th data-field="referringUrls" data-sortable="false">referringUrls</th>
+              <th data-field="sitemap" data-sortable="false">sitemap</th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="center-block text-center">
+          <a class="text-primary" href="/tos.html">terms of service</a> - <a class="text-primary" href="/privacy.html">privacy policy</a>
+        </div>
+      </div>
+
+    </div><!-- /.container -->
+
+    <script type="text/javascript" src="https://valentin.app/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://valentin.app/js/typeahead.bundle.min.js"></script>
+    <script type="text/javascript" src="https://valentin.app/js/bootstrap-3.3.7.min.js"></script>
+    <script type="text/javascript" src="https://valentin.app/js/xlsx.core.min.js"></script>
+    <script type="text/javascript" src="https://valentin.app/js/tableExport.min.v1.22.0.js"></script>
+    <script type="text/javascript" src="https://valentin.app/js/bootstrap-table.min.js"></script>
+    <script type="text/javascript" src="https://valentin.app/js/bootstrap-table-export.min.js"></script>
+    <script type="text/javascript" src="https://valentin.app/js/handlebars.min-v4.7.7.js"></script>
+    <script type="text/javascript" src="https://apis.google.com/js/api.js"></script>
+    <script type="text/javascript" src="{% static "index_checker/js/inspect.js" %}"></script>
+
+  </body>
+</html>

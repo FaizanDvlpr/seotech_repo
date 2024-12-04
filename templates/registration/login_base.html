@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login Page</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #0c0c0c, #3a3a3a);
+        }
+        
+        .container {
+            position: relative;
+            width: 350px;
+            padding: 40px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1); /* Transparent background */
+            backdrop-filter: blur(15px); /* Enhanced blur effect */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Slightly lighter border */
+        }
+        
+        h3 {
+            color: #f1f1f1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .form-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .input-box {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        
+        .input-box label {
+            color: #f1f1f1;
+            font-size: 0.9em;
+        }
+        
+        .input-box input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.2); /* Darker translucent input */
+            color: #f1f1f1;
+            font-size: 1em;
+            margin-top: 5px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4caf50; /* Darker green */
+            color: #f1f1f1;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #388e3c; /* Darker green on hover */
+        }
+        
+        p {
+            color: #f1f1f1;
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        p a {
+            color: #80deea; /* Light cyan */
+            text-decoration: none;
+        }
+        
+        p a:hover {
+            text-decoration: underline;
+        }
+        
+        .helptext {
+            font-size: 0.8em;
+            color: #bbb; /* Light grey */
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    {% block body_content %}{% endblock %}
+</body>
+</html>
